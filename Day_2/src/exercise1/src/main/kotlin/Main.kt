@@ -16,7 +16,7 @@ fun main() {
     println("The incident info:")
     println("Description: ${inc.disc}")
     inc.phone?.let { println("Phone number: $it") }
-    inc.type?.let { println("Type: $it") }
+    inc.type?.let { println("Type: ${it.value}") }
     println()
     if (zone.determ(inc)) {
         println("An incident is within the zone")
