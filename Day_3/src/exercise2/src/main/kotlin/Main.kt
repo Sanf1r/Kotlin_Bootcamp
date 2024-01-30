@@ -29,6 +29,7 @@ fun main() {
 
     }
     println(res)
+    println(res)
 
     var y = res / 12
     var m = res % 12
