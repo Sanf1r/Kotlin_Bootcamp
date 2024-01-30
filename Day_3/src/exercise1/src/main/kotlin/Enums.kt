@@ -4,7 +4,7 @@ enum class Field(val value: String) {
     IT("IT"),
     BANK("Banking"),
     PS("Public services"),
-    ALL("All")
+    ALL("All");
 }
 
 enum class Profession(val value: String) {
@@ -13,22 +13,19 @@ enum class Profession(val value: String) {
     PM("PM"),
     AN("Analyst"),
     DES("Designer"),
-    ALL("All")
-
+    ALL("All");
 }
 
 enum class Level(val value: String) {
     JUN("Junior"),
     MID("Middle"),
     SEN("Senior"),
-    ALL("All")
-
+    ALL("All");
 }
 
 enum class Salary(val value: String) {
     LOW("< 100000"),
     MID("100000 - 150000"),
     TOP("> 150000"),
-    ALL("All")
-
+    ALL("All");
 }
