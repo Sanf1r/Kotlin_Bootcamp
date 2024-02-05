@@ -93,7 +93,7 @@ class RevolverDrum<T : Bullet>(private val klass: KClass<T>) {
             println("Click! A damp one!")
             ++pointer
             return false
-        }else {
+        } else {
             bullet.shoot()
             drum[pointer++]?.shot = true
             pointer %= drum.size
@@ -145,6 +145,10 @@ class RevolverDrum<T : Bullet>(private val klass: KClass<T>) {
 
     fun bulletsCount(): Int {
         return drum.count { it != null }
+    }
+
+    fun nextBullet() {
+        ++pointer
     }
 
     override fun toString(): String {
