@@ -65,5 +65,9 @@ fun main() {
     println()
     println(eqTest)
     println()
-    println("Result: ${revolver == eqTest}")
+    if (revolver == eqTest) {
+        println("Result: equals")
+    } else {
+        println("Result: not equals")
+    }
 }

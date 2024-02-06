@@ -3,6 +3,7 @@ package org.example
 import bullets.*
 
 fun main() {
+    println("Check that normal bullets shoot and damp not:")
     val revolver = RevolverDrum<Bullet>()
     // fire normal and damp
     val normalBullet = FortyFive()
@@ -14,12 +15,14 @@ fun main() {
     revolver.shootBullet()
     println()
     // add bullet to different drums
+    println("Try to add one bullet to different drums:")
     val secondDrum = RevolverDrum<Bullet>()
     val insertBullet = FortyFive()
     println(revolver.addBullet(insertBullet))
     println(secondDrum.addBullet(insertBullet))
     println()
     // collections check
+    println("Try to add one bullet to different collections:")
     revolver.unloadAllBullets()
     val bulletOne = ThreeEighty()
     val bulletTwo = ThreeEighty()
@@ -31,6 +34,7 @@ fun main() {
     println(supply)
     println()
     // test load unload
+    println("Load unload test:")
     revolver.unloadAllBullets()
     val test = FortyFive()
     revolver.addBullet(test)
