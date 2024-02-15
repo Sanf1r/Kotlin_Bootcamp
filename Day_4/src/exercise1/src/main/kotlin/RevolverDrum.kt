@@ -127,7 +127,6 @@ class RevolverDrum<T : Any>(private val klass: KClass<T>) {
         val tmpDrum = drum.toMutableList()
         val tmpPointer = pointer
         drumSpin(tmpDrum, drum.size - tmpPointer)
-
         return tmpDrum == other.drum
     }
 

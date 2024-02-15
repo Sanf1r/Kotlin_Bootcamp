@@ -10,7 +10,7 @@ fun main() {
 
     val jsonEnums = parseLogic()
 
-    val res = decodedJson!!.listOfCompanies
+    var res = decodedJson!!.listOfCompanies
 
     filterLogic(res, jsonEnums)
 

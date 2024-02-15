@@ -66,4 +66,14 @@ fun main() {
     println(eqTest)
     println()
     println("Result: ${revolver == eqTest}")
+    val supply1 = mutableListOf(5,4,3,2,1,6)
+    val supply2 = mutableListOf(6,5,4,3,2,1)
+    val test1 = RevolverDrum<Int>()
+    val test2 = RevolverDrum<Int>()
+    test1.supplyBullets(supply1)
+    test2.supplyBullets(supply2)
+    println(test1.drum)
+    println(test2.drum)
+    println(test1 == test2)
+
 }

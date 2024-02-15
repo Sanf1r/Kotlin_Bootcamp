@@ -31,7 +31,7 @@ data class Company(
 
 @Serializable
 data class CompanyList(
-    val listOfCompanies: List<Company>
+    val listOfCompanies: MutableList<Company>
 )
 
 fun parseLogic(): JsonEnums {
@@ -56,9 +56,9 @@ fun parseLogic(): JsonEnums {
     return JsonEnums(field, prof, level, summ)
 }
 
-fun filterLogic(list: List<Company>, jsonEnums: JsonEnums) {
+fun filterLogic(list: MutableList<Company>, jsonEnums: JsonEnums) {
     if (jsonEnums.field.value != "All") {
-        list.filter { it.fieldOfActivity.equals(jsonEnums.field.value, true) }
+        list.retainAll { it.fieldOfActivity.equals(jsonEnums.field.value, true) }
     }
     if (jsonEnums.prof.value != "All") {
         list.filter { it -> it.vacancies.retainAll { it.profession.equals(jsonEnums.prof.value, true) } }
