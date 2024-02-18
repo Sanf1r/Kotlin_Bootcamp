@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">exercise2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="gameName">Simon Game!</string>
+    <string name="buttonMsg">Click Me!</string>
+    <string name="pressMsg">You pressed the button!</string>
+    <string name="game_info">Watch, remember, repeat!\nThe Simon game is the exciting electronic game of lights and sounds in which players must repeat random sequences of lights by pressing the colored pads in the correct order. It\'s fast-paced play, with lights and sounds that can challenge you. Experience the fun as you repeat the patterns and advance to higher levels. Keep track of your score as you challenge friends or try to beat your own high score.</string>
+    <string name="morfinov"><u>morfinov</u></string>
+    <string name="about_the_game">About the game:</string>
+    <string name="record_text">Record:</string>
+    <string name="rules_text">Rules:</string>
+    <string name="author_text">Author:</string>
+    <string name="level_text">Level:</string>
+    <string name="level">1</string>
+    <string name="top_score_text">Top score:</string>
+    <string name="simon_game_text">SIMON GAME!</string>
+    <string name="new_game">NEW GAME</string>
+    <string name="about">About</string>
+</resources>
