@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.BonusExercise5" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">@color/black</item>
+    </style>
+
+    <style name="Theme.BonusExercise5" parent="Base.Theme.BonusExercise5" />
+</resources>
