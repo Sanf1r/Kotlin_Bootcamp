@@ -95,6 +95,7 @@ class GameFragment : Fragment() {
         answers.add(color.ordinal)
         sounds[color.ordinal].start()
         if (!check(curIndex++)) {
+            disableButtons()
             flag = false
             showScoreDialog(requireContext(), level - 1)
         }
@@ -142,7 +143,7 @@ class GameFragment : Fragment() {
     }
 
     private suspend fun playSequence() {
-        val customDelay = 100L
+        val customDelay = 200L
         disableButtons()
         delay(1000)
         for (l in levels) {

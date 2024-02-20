@@ -2,7 +2,6 @@ package com.example.exercise2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.window.OnBackInvokedDispatcher
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.exercise2.databinding.ActivityMainBinding

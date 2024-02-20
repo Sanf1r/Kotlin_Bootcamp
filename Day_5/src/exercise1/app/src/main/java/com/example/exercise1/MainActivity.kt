@@ -83,6 +83,7 @@ class MainActivity : AppCompatActivity() {
         answers.add(color.ordinal)
         sounds[color.ordinal].start()
         if (!check(curIndex++)) {
+            disableButtons()
             flag = false
             showScoreDialog(this, level - 1)
         }

@@ -3,4 +3,7 @@
     <string name="gameName">Simon Game!</string>
     <string name="buttonMsg">Click Me!</string>
     <string name="pressMsg">You pressed the button!</string>
+    <string name="level">Level:</string>
+    <string name="_1">1</string>
+    <string name="top_score">Top score:</string>
 </resources>
