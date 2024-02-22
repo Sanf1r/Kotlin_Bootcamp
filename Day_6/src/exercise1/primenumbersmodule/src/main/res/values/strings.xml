@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">primenumbersmodule</string>
+    <string name="prime_title">Prime numbers module</string>
+    <string name="enter_number">Enter number:</string>
+    <string name="max_15_digits">Max 15 digits</string>
+    <string name="grouping_order">Grouping order:</string>
+    <string name="results">Results:</string>
+    <string name="calculate">Calculate</string>
+    <string-array name="order_choice">
+        <item>Higher</item>
+        <item>Lower</item>
+    </string-array>
+</resources>
