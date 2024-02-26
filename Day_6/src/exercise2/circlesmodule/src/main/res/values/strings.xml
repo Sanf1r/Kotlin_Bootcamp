@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">circlesmodule</string>
+    <string name="circles_title">Circles module</string>
+    <string name="first_circle">First circle:</string>
+    <string name="coord_x">Coord. X:</string>
+    <string name="coord_y">Coord. Y:</string>
+    <string name="radius">Radius:</string>
+    <string name="second_circle">Second circle:</string>
+    <string name="results">Results:</string>
+    <string name="calculate">Calculate</string>
+</resources>
