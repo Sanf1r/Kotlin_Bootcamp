@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">exercise3</string>
+    <string name="title">The Smart Calculator</string>
+    <string name="circles_module_title">Circles module</string>
+    <string name="prime_numbers_module_title">Prime numbers module</string>
+    <string name="thermohydrometer_module_title">Thermohydrometer module</string>
+</resources>
