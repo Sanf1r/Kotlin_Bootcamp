@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">speechmodule</string>
+    <string name="speech_title">Speech module</string>
+    <string name="enter_number_to_transform">Enter number to transform</string>
+    <string name="max_1_billion">Max 1 billion</string>
+    <string name="results">Results</string>
+    <string name="transform">Transform</string>
+</resources>
