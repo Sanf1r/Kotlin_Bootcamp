@@ -22,5 +22,5 @@ Create a logger module
 - Use the logging module to log any operations in the feature modules. Add some "analytics": log button taps and screen opening. Usually, it's a good practice to use logging where an exception may occur and when you're obtaining info (e.g. input) or preparing it before some logic (e.g. before calculations). Also, you can add logs to the Android framework events to get better acquainted with it (e.g. activity/fragment lifecycle) 
 
 ## Bonus exercise 4: More features
-- The Smart Calculator now is a very-easy-to-extend application. Decide with you team, what functionality do you want to add next and write a new module/a couple of modules
+- The Smart Calculator now is a very-easy-to-extend application. Write a new module/a couple of modules
 - New modules can be of different types: a new feature, a new module with core functionality
