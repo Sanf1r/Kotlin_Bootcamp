@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">exercise0</string>
+    <string name="start">Start download</string>
+    <string name="cancel">Cancel download</string>
+    <string name="status">Downloading…</string>
+    <string name="reset_download">Reset download</string>
+    <string name="download_complete">Download complete</string>
+</resources>
