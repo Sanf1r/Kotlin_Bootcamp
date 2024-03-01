@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">thermohydrometermodule</string>
+    <string name="thermo_title">Thermohydrometer module</string>
+    <string name="output_mode">Output mode:</string>
+    <string name="season">Season:</string>
+    <string name="enter_a_temperature">Enter a temperature:</string>
+    <string name="enter_humidity">Enter humidity:</string>
+    <string name="results">Results:</string>
+    <string name="calculate">Calculate</string>
+    <string-array name="mode_choice">
+        <item>Celsius</item>
+        <item>Kelvin</item>
+        <item>Fahrenheit</item>
+    </string-array>
+    <string-array name="season_choice">
+        <item>Summer</item>
+        <item>Winter</item>
+    </string-array>
+</resources>

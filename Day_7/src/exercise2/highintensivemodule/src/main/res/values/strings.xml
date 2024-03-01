@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">highintensivemodule</string>
+    <string name="cancel">Cancel</string>
+    <string name="factorial">Factorial</string>
+    <string name="square_and_cube_root">Square and cube root</string>
+    <string name="logs">Logarithms lg and ln</string>
+    <string name="exp">Squaring and cube</string>
+    <string name="simple">Simplicity test</string>
+    <string name="all_in">All in!</string>
+    <string name="wrong_input">Wrong input!</string>
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.exercise2.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_circlesFragment"
+            app:destination="@id/circlesFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_primeNumbersFragment"
+            app:destination="@id/primeNumbersFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_thermoFragment"
+            app:destination="@id/thermoFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_speechFragment"
+            app:destination="@id/speechFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_intensiveFragment"
+            app:destination="@id/intensiveFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/circlesFragment"
+        android:name="com.example.circlesmodule.CirclesFragment"
+        android:label="CirclesFragment" />
+    <fragment
+        android:id="@+id/primeNumbersFragment"
+        android:name="com.example.primenumbersmodule.PrimeNumbersFragment"
+        android:label="PrimeNumbersFragment" />
+    <fragment
+        android:id="@+id/thermoFragment"
+        android:name="com.example.thermohydrometermodule.ThermoFragment"
+        android:label="ThermoFragment" />
+    <fragment
+        android:id="@+id/speechFragment"
+        android:name="com.example.speechmodule.SpeechFragment"
+        android:label="SpeechFragment" />
+    <fragment
+        android:id="@+id/intensiveFragment"
+        android:name="com.example.highintensivemodule.IntensiveFragment"
+        android:label="IntensiveFragment" />
+</navigation>
