@@ -34,3 +34,7 @@ First Android project! Main topics are:
 # Day 6
 Project with multiply Gradle modules. Main topics are:
 - Modularization of the application
+
+# Day 7 
+Very important and interesting feature of Kotlin - coroutines. Main topics are:
+- Coroutines
