@@ -11,107 +11,241 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="High intensive module"
+        android:text="@string/high_intensive_module"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/first_circle_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Select action:"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/circles_module_title" />
-
-    <TextView
-        android:id="@+id/first_x"
+        android:id="@+id/enter_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="Enter number:"
-
+        android:text="@string/enter_number"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/first_circle_title" />
+        app:layout_constraintTop_toBottomOf="@+id/circles_module_title" />
 
     <EditText
-        android:id="@+id/first_x_input"
+        android:id="@+id/number_input"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:inputType="numberSigned|numberDecimal"
         android:maxLength="16"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/first_x"
-        app:layout_constraintStart_toEndOf="@id/first_x"
-        app:layout_constraintTop_toTopOf="@+id/first_x" />
+        app:layout_constraintBottom_toBottomOf="@+id/enter_text"
+        app:layout_constraintStart_toEndOf="@id/enter_text"
+        app:layout_constraintTop_toTopOf="@+id/enter_text" />
 
     <TextView
-        android:id="@+id/results"
+        android:id="@+id/factorial_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Results:"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/all_in" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/factorial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
         android:text="@string/factorial"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/first_x_input" />
+        app:layout_constraintTop_toBottomOf="@+id/enter_text" />
+
+    <TextView
+        android:id="@+id/factorial_result"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:ellipsize="end"
+        android:maxLines="5"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/factorial_text"
+        app:layout_constraintEnd_toEndOf="@+id/number_input"
+        app:layout_constraintStart_toStartOf="@+id/number_input"
+        app:layout_constraintTop_toTopOf="@+id/factorial_text" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/roots"
+        android:id="@+id/run_factorial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/square_and_cube_root"
+        android:layout_marginStart="5dp"
+        android:text="@string/run"
+        app:layout_constraintBottom_toBottomOf="@+id/factorial_text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/factorial_result"
+        app:layout_constraintTop_toTopOf="@+id/factorial_text" />
+
+    <TextView
+        android:id="@+id/square_root_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/square_root"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/factorial" />
+        app:layout_constraintTop_toBottomOf="@+id/factorial_result" />
+
+    <TextView
+        android:id="@+id/square_root_result"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/square_root_text"
+        app:layout_constraintEnd_toEndOf="@+id/factorial_result"
+        app:layout_constraintStart_toStartOf="@+id/factorial_result"
+        app:layout_constraintTop_toTopOf="@+id/square_root_text" />
+
+    <TextView
+        android:id="@+id/cube_root_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/cube_root"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/square_root_text" />
+
+    <TextView
+        android:id="@+id/cube_root_result"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/cube_root_text"
+        app:layout_constraintEnd_toEndOf="@+id/factorial_result"
+        app:layout_constraintStart_toStartOf="@+id/factorial_result"
+        app:layout_constraintTop_toTopOf="@+id/cube_root_text" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/logs"
+        android:id="@+id/run_roots"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/run"
+        app:layout_constraintEnd_toEndOf="@+id/run_factorial"
+        app:layout_constraintStart_toStartOf="@+id/run_factorial"
+        app:layout_constraintTop_toBottomOf="@+id/factorial_result" />
+
+    <TextView
+        android:id="@+id/lg_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="@string/logs"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/log"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/roots" />
+        app:layout_constraintTop_toBottomOf="@+id/cube_root_result" />
+
+    <TextView
+        android:id="@+id/lg_result"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/lg_text"
+        app:layout_constraintEnd_toEndOf="@+id/factorial_result"
+        app:layout_constraintStart_toStartOf="@+id/factorial_result"
+        app:layout_constraintTop_toTopOf="@+id/lg_text" />
+
+    <TextView
+        android:id="@+id/ln_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/ln"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lg_text" />
+
+    <TextView
+        android:id="@+id/ln_result"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/ln_text"
+        app:layout_constraintEnd_toEndOf="@+id/factorial_result"
+        app:layout_constraintStart_toStartOf="@+id/factorial_result"
+        app:layout_constraintTop_toTopOf="@+id/ln_text" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/exp"
+        android:id="@+id/run_logs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/run"
+        app:layout_constraintEnd_toEndOf="@+id/run_roots"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/run_roots"
+        app:layout_constraintTop_toBottomOf="@+id/cube_root_result" />
+
+    <TextView
+        android:id="@+id/square_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="@string/exp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/square"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logs" />
+        app:layout_constraintTop_toBottomOf="@+id/ln_result" />
+
+    <TextView
+        android:id="@+id/square_result"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/square_text"
+        app:layout_constraintEnd_toEndOf="@+id/factorial_result"
+        app:layout_constraintStart_toStartOf="@+id/factorial_result"
+        app:layout_constraintTop_toTopOf="@+id/square_text" />
+
+    <TextView
+        android:id="@+id/cube_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/cube"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/square_text" />
+
+    <TextView
+        android:id="@+id/cube_result"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/cube_text"
+        app:layout_constraintEnd_toEndOf="@+id/factorial_result"
+        app:layout_constraintStart_toStartOf="@+id/factorial_result"
+        app:layout_constraintTop_toTopOf="@+id/cube_text" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/simple"
+        android:id="@+id/run_exp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/simple"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="25dp"
+        android:text="@string/run"
+        app:layout_constraintEnd_toEndOf="@+id/run_logs"
+        app:layout_constraintStart_toStartOf="@+id/run_logs"
+        app:layout_constraintTop_toBottomOf="@+id/ln_result" />
+
+    <TextView
+        android:id="@+id/simple_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/is_simple"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/exp" />
+        app:layout_constraintTop_toBottomOf="@+id/cube_result" />
+
+    <TextView
+        android:id="@+id/simple_result"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/simple_text"
+        app:layout_constraintEnd_toEndOf="@+id/factorial_result"
+        app:layout_constraintStart_toStartOf="@+id/factorial_result"
+        app:layout_constraintTop_toTopOf="@+id/simple_text" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/run_simple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/run"
+        app:layout_constraintEnd_toEndOf="@+id/run_exp"
+        app:layout_constraintStart_toStartOf="@+id/run_exp"
+        app:layout_constraintTop_toBottomOf="@+id/cube_result" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/all_in"
@@ -121,22 +255,7 @@
         android:text="@string/all_in"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/simple" />
+        app:layout_constraintTop_toBottomOf="@id/run_simple" />
 
-    <TextView
-        android:id="@+id/result_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:ellipsize="end"
-        android:gravity="center"
-        android:maxLines="15"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/results" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

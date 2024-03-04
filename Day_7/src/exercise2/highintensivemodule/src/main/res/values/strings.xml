@@ -1,11 +1,17 @@
 <resources>
     <string name="app_name">highintensivemodule</string>
     <string name="cancel">Cancel</string>
-    <string name="factorial">Factorial</string>
-    <string name="square_and_cube_root">Square and cube root</string>
-    <string name="logs">Logarithms lg and ln</string>
-    <string name="exp">Squaring and cube</string>
-    <string name="simple">Simplicity test</string>
-    <string name="all_in">All in!</string>
+    <string name="factorial">Factorial:</string>
+    <string name="all_in">Run all jobs</string>
     <string name="wrong_input">Wrong input!</string>
+    <string name="run">Run</string>
+    <string name="high_intensive_module">High intensive module</string>
+    <string name="enter_number">Enter number:</string>
+    <string name="square_root">Square root:</string>
+    <string name="cube_root">Cube root:</string>
+    <string name="log">Log:</string>
+    <string name="ln">Ln:</string>
+    <string name="square">Square:</string>
+    <string name="cube">Cube:</string>
+    <string name="is_simple">Is simple?:</string>
 </resources>

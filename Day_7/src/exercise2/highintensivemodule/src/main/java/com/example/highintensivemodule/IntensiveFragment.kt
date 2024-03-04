@@ -3,11 +3,11 @@ package com.example.highintensivemodule
 import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import android.widget.Toast
 import com.example.highintensivemodule.databinding.FragmentIntensiveBinding
 import com.example.loggermodule.FragmentWithLogger
@@ -44,7 +44,6 @@ class IntensiveFragment : FragmentWithLogger() {
     private var allInJob: CompletableJob? = null
     private val listJobs = arrayListOf(factJob, rootsJob, logsJob, expJob, simpleJob)
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -56,37 +55,43 @@ class IntensiveFragment : FragmentWithLogger() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         buttonList =
-            arrayListOf(binding.factorial, binding.roots, binding.logs, binding.exp, binding.simple)
+            arrayListOf(
+                binding.runFactorial,
+                binding.runRoots,
+                binding.runLogs,
+                binding.runExp,
+                binding.runSimple
+            )
 
-        binding.factorial.setOnClickListener {
+        binding.runFactorial.setOnClickListener {
             it.hideKeyboard()
             if (!blankInput()) {
                 startOrCancelSmallJobs(Jobs.FACTORIAL)
             }
         }
 
-        binding.roots.setOnClickListener {
+        binding.runRoots.setOnClickListener {
             it.hideKeyboard()
             if (!blankInput()) {
                 startOrCancelSmallJobs(Jobs.ROOTS)
             }
         }
 
-        binding.logs.setOnClickListener {
+        binding.runLogs.setOnClickListener {
             it.hideKeyboard()
             if (!blankInput()) {
                 startOrCancelSmallJobs(Jobs.LOGS)
             }
         }
 
-        binding.exp.setOnClickListener {
+        binding.runExp.setOnClickListener {
             it.hideKeyboard()
             if (!blankInput()) {
                 startOrCancelSmallJobs(Jobs.EXP)
             }
         }
 
-        binding.simple.setOnClickListener {
+        binding.runSimple.setOnClickListener {
             it.hideKeyboard()
             if (!blankInput()) {
                 startOrCancelSmallJobs(Jobs.SIMPLE)
@@ -108,11 +113,11 @@ class IntensiveFragment : FragmentWithLogger() {
     private fun runFactorialJob(job: CompletableJob) {
         CoroutineScope(Dispatchers.Default + job).launch {
             logOnStart("FactorialCorTag", job)
-            val res = calculateFactorial(binding.firstXInput.text.toString().toIntOrNull())
-            uiResultUpdate(res)
+            val res = calculateFactorial(binding.numberInput.text.toString().toIntOrNull())
+            uiResultUpdate(binding.factorialResult, res)
             job.complete()
         }.invokeOnCompletion {
-            uiButtonTextUpdate(binding.factorial, getString(R.string.factorial))
+            if (it == null) uiButtonTextUpdate(binding.runFactorial, getString(R.string.run))
             logOnFinish(it, "FactorialCorTag", job)
         }
     }
@@ -120,13 +125,13 @@ class IntensiveFragment : FragmentWithLogger() {
     private fun runRootsJob(job: CompletableJob) {
         CoroutineScope(Dispatchers.Default + job).launch {
             logOnStart("RootsCorTag", job)
-            val res = async { calculateSquareRoot(binding.firstXInput.text.toString().toDouble()) }
-            val res2 = async { calculateCubeRoot(binding.firstXInput.text.toString().toDouble()) }
-            val out = res.await() + "\n" + res2.await()
-            uiResultUpdate(out)
+            val res = async { calculateSquareRoot(binding.numberInput.text.toString().toDouble()) }
+            val res2 = async { calculateCubeRoot(binding.numberInput.text.toString().toDouble()) }
+            uiResultUpdate(binding.squareRootResult, res.await())
+            uiResultUpdate(binding.cubeRootResult, res2.await())
             job.complete()
         }.invokeOnCompletion {
-            uiButtonTextUpdate(binding.roots, getString(R.string.square_and_cube_root))
+            if (it == null) uiButtonTextUpdate(binding.runRoots, getString(R.string.run))
             logOnFinish(it, "RootsCorTag", job)
         }
     }
@@ -134,13 +139,13 @@ class IntensiveFragment : FragmentWithLogger() {
     private fun runLogsJob(job: CompletableJob) {
         CoroutineScope(Dispatchers.Default + job).launch {
             logOnStart("LogsCorTag", job)
-            val res = async { calculateLog(binding.firstXInput.text.toString().toDouble()) }
-            val res2 = async { calculateLn(binding.firstXInput.text.toString().toDouble()) }
-            val out = res.await() + "\n" + res2.await()
-            uiResultUpdate(out)
+            val res = async { calculateLog(binding.numberInput.text.toString().toDouble()) }
+            val res2 = async { calculateLn(binding.numberInput.text.toString().toDouble()) }
+            uiResultUpdate(binding.lgResult, res.await())
+            uiResultUpdate(binding.lnResult, res2.await())
             job.complete()
         }.invokeOnCompletion {
-            uiButtonTextUpdate(binding.logs, getString(R.string.logs))
+            if (it == null) uiButtonTextUpdate(binding.runLogs, getString(R.string.run))
             logOnFinish(it, "LogsCorTag", job)
         }
     }
@@ -148,13 +153,13 @@ class IntensiveFragment : FragmentWithLogger() {
     private fun runExpJob(job: CompletableJob) {
         CoroutineScope(Dispatchers.Default + job).launch {
             logOnStart("ExpCorTag", job)
-            val res = async { calculateExpTwo(binding.firstXInput.text.toString().toDouble()) }
-            val res2 = async { calculateExpThree(binding.firstXInput.text.toString().toDouble()) }
-            val out = res.await() + "\n" + res2.await()
-            uiResultUpdate(out)
+            val res = async { calculateExpTwo(binding.numberInput.text.toString().toDouble()) }
+            val res2 = async { calculateExpThree(binding.numberInput.text.toString().toDouble()) }
+            uiResultUpdate(binding.squareResult, res.await())
+            uiResultUpdate(binding.cubeResult, res2.await())
             job.complete()
         }.invokeOnCompletion {
-            uiButtonTextUpdate(binding.exp, getString(R.string.exp))
+            if (it == null) uiButtonTextUpdate(binding.runExp, getString(R.string.run))
             logOnFinish(it, "ExpCorTag", job)
         }
     }
@@ -163,17 +168,17 @@ class IntensiveFragment : FragmentWithLogger() {
         CoroutineScope(Dispatchers.Default + job).launch {
             logOnStart("SimpleCorTag", job)
             var res = withTimeoutOrNull(1000L) {
-                delay(2000)
-                calculateSimple(binding.firstXInput.text.toString().toInt())
+                if (binding.numberInput.text.toString().toInt() > 100) delay(2000)
+                calculateSimple(binding.numberInput.text.toString().toInt())
             }
             if (res == null) {
                 res = "Timeout!"
                 showAlertDialog()
             }
-            uiResultUpdate(res)
+            uiResultUpdate(binding.simpleResult, res)
             job.complete()
         }.invokeOnCompletion {
-            uiButtonTextUpdate(binding.simple, getString(R.string.simple))
+            if (it == null) uiButtonTextUpdate(binding.runSimple, getString(R.string.run))
             logOnFinish(it, "SimpleCorTag", job)
         }
     }
@@ -181,35 +186,30 @@ class IntensiveFragment : FragmentWithLogger() {
     private fun runAllInJob(job: CompletableJob) {
         CoroutineScope(Dispatchers.Default + job).launch {
             logOnStart("AllCorTag", job)
-            val intNumber = binding.firstXInput.text.toString().toIntOrNull()
-            val doubleNumber = binding.firstXInput.text.toString().toDouble()
+            val intNumber = binding.numberInput.text.toString().toIntOrNull()
+            val doubleNumber = binding.numberInput.text.toString().toDouble()
             val res1 = async { calculateFactorial(intNumber) }
-            val res2 = async {
-                val tmp1 = async { calculateSquareRoot(doubleNumber) }.await()
-                val tmp2 = async { calculateCubeRoot(doubleNumber) }.await()
-                tmp1 + "\n" + tmp2
-            }
-//            awaitAll(
-//                async {
-//                    withContext(Dispatchers.Main) { binding.roots.performClick() }
-//                },
-//                async {
-//                    withContext(Dispatchers.Main) { binding.logs.performClick() }
-//                },
-//                async {
-//                    withContext(Dispatchers.Main) { binding.exp.performClick() }
-//                },
-//                async {
-//                    withContext(Dispatchers.Main) { binding.simple.performClick() }
-//                }
-//            )
-            val out = res2.await()
-            uiResultUpdate(out)
+            val res2 = async { calculateSquareRoot(doubleNumber) }
+            val res3 = async { calculateCubeRoot(doubleNumber) }
+            val res4 = async { calculateLog(doubleNumber) }
+            val res5 = async { calculateLn(doubleNumber) }
+            val res6 = async { calculateExpTwo(doubleNumber) }
+            val res7 = async { calculateExpThree(doubleNumber) }
+            runSimpleJob(job)
+            uiResultUpdate(binding.squareRootResult, res2.await())
+            uiResultUpdate(binding.cubeRootResult, res3.await())
+            uiResultUpdate(binding.lgResult, res4.await())
+            uiResultUpdate(binding.lnResult, res5.await())
+            uiResultUpdate(binding.squareResult, res6.await())
+            uiResultUpdate(binding.cubeResult, res7.await())
+            uiResultUpdate(binding.factorialResult, res1.await())
             job.complete()
         }.invokeOnCompletion {
-            uiButtonTextUpdate(binding.allIn, getString(R.string.all_in))
+            if (it == null) {
+                uiButtonTextUpdate(binding.allIn, getString(R.string.all_in))
+                enableButtons()
+            }
             logOnFinish(it, "AllCorTag", job)
-            enableButtons()
         }
     }
 
@@ -243,17 +243,17 @@ class IntensiveFragment : FragmentWithLogger() {
     }
 
     private fun blankInput(): Boolean {
-        val str = binding.firstXInput.text.toString()
+        val str = binding.numberInput.text.toString()
         if (str.isBlank() || str == "." || str == "-" || str == "-.") {
-            binding.resultText.text = getString(R.string.wrong_input)
+            Toast.makeText(requireContext(), "Wrong input!", Toast.LENGTH_SHORT).show()
             return true
         }
         return false
     }
 
-    private fun uiResultUpdate(res: String) {
+    private fun uiResultUpdate(view: TextView, res: String) {
         CoroutineScope(Dispatchers.Main).launch {
-            binding.resultText.text = res
+            view.text = res
         }
     }
 
@@ -285,22 +285,18 @@ class IntensiveFragment : FragmentWithLogger() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        factJob?.cancel()
-    }
-
     private suspend fun calculateFactorial(number: Int?): String {
-        if (number == null || number < 0) return "Wrong input!"
+        if (number == null || number < 0) return "Number too big"
         var factorial = BigDecimal.ONE
         for (i in 1..number) {
             coroutineContext.ensureActive()
             factorial = factorial.times(BigDecimal.valueOf(i.toLong()))
         }
-        return "Factorial = $factorial"
+        return factorial.toString()
     }
 
-    private suspend fun calculateSimple(number: Int): String {
+    private suspend fun calculateSimple(number: Int?): String {
+        if (number == null || number < 0) return "Number too big"
         var res = true
         if (number <= 1) res = false
         var i = 2
@@ -312,26 +308,26 @@ class IntensiveFragment : FragmentWithLogger() {
             }
             ++i
         }
-        return if (res) "Number is simple" else "Number is not simple"
+        return if (res) "Yes" else "No"
     }
 
     private fun calculateSquareRoot(number: Double): String =
-        "Square root = " + sqrt(number).toString()
+        sqrt(number).toString()
 
     private fun calculateCubeRoot(number: Double): String =
-        "Cube root = " + cbrt(number).toString()
+        cbrt(number).toString()
 
     private fun calculateLog(number: Double): String =
-        "Log10 = " + log10(number).toString()
+        log10(number).toString()
 
     private fun calculateLn(number: Double): String =
-        "Ln = " + ln(number).toString()
+        ln(number).toString()
 
     private fun calculateExpTwo(number: Double): String =
-        "Square number = " + number.pow(2.0).toString()
+        number.pow(2.0).toString()
 
     private fun calculateExpThree(number: Double): String =
-        "Cube number = " + number.pow(3.0).toString()
+        number.pow(3.0).toString()
 
     private fun disableButtons() {
         CoroutineScope(Dispatchers.Main).launch {
@@ -343,6 +339,12 @@ class IntensiveFragment : FragmentWithLogger() {
         CoroutineScope(Dispatchers.Main).launch {
             buttonList.forEach { it.isEnabled = true }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        allInJob?.cancel()
+        listJobs.forEach { it?.cancel() }
     }
 }
 
