@@ -9,3 +9,9 @@ data class Company(
     val vacancies: List<String> = emptyList(),
     val contacts: String
 )
+
+@Serializable
+data class CompanyInfo(
+    val name: String,
+    val fieldOfActivity: String
+)
