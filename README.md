@@ -38,3 +38,10 @@ Project with multiply Gradle modules. Main topics are:
 # Day 7 
 Very important and interesting feature of Kotlin - coroutines. Main topics are:
 - Coroutines
+
+# Day 8
+Simple server-side with a Ktor framework. Main topics are:
+
+- Ktor framework
+- HTTP
+- The architecture of the application
