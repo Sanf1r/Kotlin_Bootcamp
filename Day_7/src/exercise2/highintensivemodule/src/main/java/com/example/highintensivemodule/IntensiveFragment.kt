@@ -117,7 +117,7 @@ class IntensiveFragment : FragmentWithLogger() {
             uiResultUpdate(binding.factorialResult, res)
             job.complete()
         }.invokeOnCompletion {
-            if (it == null) uiButtonTextUpdate(binding.runFactorial, getString(R.string.run))
+            uiButtonTextUpdate(binding.runFactorial, getString(R.string.run))
             logOnFinish(it, "FactorialCorTag", job)
         }
     }
@@ -131,7 +131,7 @@ class IntensiveFragment : FragmentWithLogger() {
             uiResultUpdate(binding.cubeRootResult, res2.await())
             job.complete()
         }.invokeOnCompletion {
-            if (it == null) uiButtonTextUpdate(binding.runRoots, getString(R.string.run))
+            uiButtonTextUpdate(binding.runRoots, getString(R.string.run))
             logOnFinish(it, "RootsCorTag", job)
         }
     }
@@ -145,7 +145,7 @@ class IntensiveFragment : FragmentWithLogger() {
             uiResultUpdate(binding.lnResult, res2.await())
             job.complete()
         }.invokeOnCompletion {
-            if (it == null) uiButtonTextUpdate(binding.runLogs, getString(R.string.run))
+            uiButtonTextUpdate(binding.runLogs, getString(R.string.run))
             logOnFinish(it, "LogsCorTag", job)
         }
     }
@@ -159,7 +159,7 @@ class IntensiveFragment : FragmentWithLogger() {
             uiResultUpdate(binding.cubeResult, res2.await())
             job.complete()
         }.invokeOnCompletion {
-            if (it == null) uiButtonTextUpdate(binding.runExp, getString(R.string.run))
+            uiButtonTextUpdate(binding.runExp, getString(R.string.run))
             logOnFinish(it, "ExpCorTag", job)
         }
     }
@@ -178,7 +178,7 @@ class IntensiveFragment : FragmentWithLogger() {
             uiResultUpdate(binding.simpleResult, res)
             job.complete()
         }.invokeOnCompletion {
-            if (it == null) uiButtonTextUpdate(binding.runSimple, getString(R.string.run))
+            uiButtonTextUpdate(binding.runSimple, getString(R.string.run))
             logOnFinish(it, "SimpleCorTag", job)
         }
     }
@@ -205,11 +205,9 @@ class IntensiveFragment : FragmentWithLogger() {
             uiResultUpdate(binding.factorialResult, res1.await())
             job.complete()
         }.invokeOnCompletion {
-            if (it == null) {
                 uiButtonTextUpdate(binding.allIn, getString(R.string.all_in))
                 enableButtons()
-            }
-            logOnFinish(it, "AllCorTag", job)
+                logOnFinish(it, "AllCorTag", job)
         }
     }
 
