@@ -1,26 +1,35 @@
 package com.example.exercise1
 
+import android.content.Context
+import android.content.res.Resources
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.data.RepositoryImpl
+import com.example.domain.CompanyInfo
+import com.example.domain.GetCompanyListUseCase
 import com.example.exercise1.databinding.FragmentCompaniesBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
 
 class CompaniesFragment : Fragment() {
     private lateinit var binding: FragmentCompaniesBinding
-    private lateinit var retrofit: Retrofit
 
+    @Inject
+    lateinit var out: GetCompanyListUseCase
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -31,10 +40,6 @@ class CompaniesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:8080/")
-            .addConverterFactory(GsonConverterFactory.create()).build()
-
         binding.list.layoutManager = LinearLayoutManager(requireContext())
         updateData()
     }
@@ -45,41 +50,18 @@ class CompaniesFragment : Fragment() {
     }
 
     fun updateData() = CoroutineScope(Dispatchers.IO).launch {
-        println("update launched")
-        val api = retrofit.create(RetroCompany::class.java)
-        val product = api.getCompanies()
-        withContext(Dispatchers.Main){
+//        println("update launched")
+//        val repo = RepositoryImpl()
+//        val out = GetCompanyListUseCase(repo)
+        val product = out.execute()
+        withContext(Dispatchers.Main) {
             val adapter = CompanyInfoAdapter(product)
             binding.list.adapter = adapter
         }
     }
 
 
-
-
 }
-
-data class Company(
-    val id: Int,
-    val name: String,
-    val fieldOfActivity: String,
-    val vacancies: List<Vacancy>,
-    val contacts: String,
-)
-
-data class Vacancy(
-    val id: Int,
-    val profession: String,
-    val level: String,
-    val salary: Int,
-    val description: String,
-)
-
-data class CompanyInfo(
-    val id: Int,
-    val name: String,
-    val fieldOfActivity: String,
-)
 
 class CompanyInfoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val companyId: TextView = view.findViewById(R.id.company_info_id)
@@ -98,9 +80,11 @@ class CompanyInfoAdapter(private val items: List<CompanyInfo>) :
 
     override fun onBindViewHolder(holder: CompanyInfoViewHolder, position: Int) {
         val company = items[position]
-        holder.companyId.text = "Company id: " + company.id.toString()
-        holder.companyName.text = "Company name: " + company.name
-        holder.companyField.text = "Company field of activity: " + company.fieldOfActivity
+        holder.companyId.text = holder.itemView.context.getString(R.string.id_text, company.id)
+        holder.companyName.text =
+            holder.itemView.context.getString(R.string.name_text, company.name)
+        holder.companyField.text =
+            holder.itemView.context.getString(R.string.field_text, company.fieldOfActivity)
     }
 
     override fun getItemCount() = items.size
