@@ -39,6 +39,10 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.gsonConverter)
 
+    // okHttp
+    implementation(libs.okhttp)
+    implementation(libs.okhttpLog)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

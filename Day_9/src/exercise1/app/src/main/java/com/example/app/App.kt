@@ -1,11 +1,10 @@
-package com.example.exercise1
+package com.example.app
 
 import android.app.Application
-import android.content.Context
-import com.example.exercise1.di.AppComponent
-import com.example.exercise1.di.DaggerAppComponent
+import com.example.app.di.AppComponent
+import com.example.app.di.DaggerAppComponent
 
-class App: Application() {
+class App : Application() {
     lateinit var appComponent: AppComponent
 
     override fun onCreate() {
@@ -13,3 +12,4 @@ class App: Application() {
         appComponent = DaggerAppComponent.create()
     }
 }
+

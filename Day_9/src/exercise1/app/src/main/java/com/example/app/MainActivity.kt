@@ -1,11 +1,8 @@
-package com.example.exercise1
+package com.example.app
 
-import android.app.Application
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.exercise1.databinding.ActivityMainBinding
+import com.example.app.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
 data class FragmentData(val title: String)
@@ -17,9 +14,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setupViewPager()
+    }
 
-        (applicationContext as App).appComponent.inject(this)
-
+    private fun setupViewPager() {
         val fragmentDataList = listOf(
             FragmentData("Companies"),
             FragmentData("Vacancies")
@@ -30,21 +28,7 @@ class MainActivity : AppCompatActivity() {
                 tab.text = fragmentDataList[position].title
             }
 
-        binding.viewPager.adapter = MyAdapter(this, fragmentDataList)
+        binding.viewPager.adapter = MyViewPagerAdapter(this, fragmentDataList)
         tabLayoutMediator.attach()
-    }
-}
-
-class MyAdapter(
-    activity: AppCompatActivity,
-    private val fragmentDataList: List<FragmentData>,
-) : FragmentStateAdapter(activity) {
-
-    override fun getItemCount(): Int {
-        return fragmentDataList.size
-    }
-
-    override fun createFragment(position: Int): Fragment {
-        return if (position == 0) CompaniesFragment() else VacanciesFragment()
     }
 }

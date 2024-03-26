@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">exercise1</string>
-    <string name="id_text">Company id: %d</string>
     <string name="name_text">Company name: %s</string>
     <string name="field_text">Company field of activity: %s</string>
 </resources>

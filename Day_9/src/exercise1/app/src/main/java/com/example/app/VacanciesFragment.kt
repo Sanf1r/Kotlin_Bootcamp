@@ -1,15 +1,15 @@
-package com.example.exercise1
+package com.example.app
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.exercise1.databinding.FragmentVacanciesBinding
+import androidx.fragment.app.Fragment
+import com.example.app.databinding.FragmentVacanciesBinding
 
 
 class VacanciesFragment : Fragment() {
-    lateinit var binding: FragmentVacanciesBinding
+    private lateinit var binding: FragmentVacanciesBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

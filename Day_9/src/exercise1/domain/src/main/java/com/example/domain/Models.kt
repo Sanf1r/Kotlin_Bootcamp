@@ -17,7 +17,6 @@ data class Vacancy(
 )
 
 data class CompanyInfo(
-    val id: Int,
     val name: String,
     val fieldOfActivity: String,
 )

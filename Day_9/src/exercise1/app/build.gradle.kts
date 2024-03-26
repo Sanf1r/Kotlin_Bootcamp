@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.exercise1"
+    namespace = "com.example.app"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.exercise1"
+        applicationId = "com.example.app"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -45,6 +45,15 @@ android {
 dependencies {
     implementation(libs.dagger2)
     ksp(libs.daggerKsp)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.gsonConverter)
+
+    // okHttp
+    implementation(libs.okhttp)
+    implementation(libs.okhttpLog)
+
 
     implementation(project(":domain"))
     implementation(project(":data"))
