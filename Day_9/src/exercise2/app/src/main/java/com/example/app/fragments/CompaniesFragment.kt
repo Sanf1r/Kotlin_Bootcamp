@@ -1,19 +1,22 @@
-package com.example.app
+package com.example.app.fragments
 
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.app.App
+import com.example.app.CompanyInfoAdapter
+import com.example.app.R
+import com.example.app.RecyclerViewEvent
 import com.example.app.databinding.FragmentCompaniesBinding
 import com.example.domain.CompanyInfo
 import com.example.domain.GetCompanyListUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -50,10 +53,11 @@ class CompaniesFragment : Fragment(), RecyclerViewEvent {
     }
 
     override fun onItemClick(position: Int) {
-        val company = product?.get(position)
-        if (company != null) {
-            Toast.makeText(requireContext(), company.name,Toast.LENGTH_SHORT).show()
-        }
+        findNavController().navigate(
+            HomeFragmentDirections.actionHomeFragmentToCompanyDetailsFragment(
+                position
+            )
+        )
     }
 
     private fun changeUi() {

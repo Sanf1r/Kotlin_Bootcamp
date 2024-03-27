@@ -1,13 +1,15 @@
 package com.example.app
 
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.app.fragments.CompaniesFragment
+import com.example.app.fragments.FragmentData
+import com.example.app.fragments.VacanciesFragment
 
 class MyViewPagerAdapter(
-    activity: AppCompatActivity,
+    fragment: Fragment,
     private val fragmentDataList: List<FragmentData>,
-) : FragmentStateAdapter(activity) {
+) : FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int {
         return fragmentDataList.size
