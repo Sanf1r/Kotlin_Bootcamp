@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">exercise1</string>
+    <string name="name_text">Company name: %s</string>
+    <string name="field_text">Company field of activity: %s</string>
+    <string name="profession_text">Profession: %s</string>
+    <string name="level_text">Level: %s</string>
+    <string name="salary_text">Salary: %d</string>
+    <string name="description_text">Description: %s</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="company_name">Company name:</string>
+    <string name="company_field">Company field:</string>
+    <string name="company_vacancies">Company vacancies:</string>
+    <string name="company_contacts">Company contacts:</string>
+</resources>
