@@ -44,4 +44,12 @@ Simple server-side with a Ktor framework. Main topics are:
 
 - Ktor framework
 - HTTP
+- The architecture of the application\
+
+# Day 9
+Create Android client application and connect it to our server! Main topics are:
+
+- Network: android Retrofit2
+- Dependency Injection: Dagger2
 - The architecture of the application
+
