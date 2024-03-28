@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.app.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_companyDetailsFragment"
+            app:destination="@id/companyDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_vacancyDetailsFragment"
+            app:destination="@id/vacancyDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/companyDetailsFragment"
+        android:name="com.example.app.fragments.CompanyDetailsFragment"
+        android:label="fragment_company_details"
+        tools:layout="@layout/fragment_company_details" >
+        <action
+            android:id="@+id/action_companyDetailsFragment_to_vacancyDetailsFragment"
+            app:destination="@id/vacancyDetailsFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="companyId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/vacancyDetailsFragment"
+        android:name="com.example.app.fragments.VacancyDetailsFragment"
+        android:label="VacancyDetailsFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_vacancyDetailsFragment_to_companyDetailsFragment"
+            app:destination="@id/companyDetailsFragment"
+            app:popUpTo="@id/companyDetailsFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="companyId"
+            app:argType="integer" />
+    </fragment>
+</navigation>
