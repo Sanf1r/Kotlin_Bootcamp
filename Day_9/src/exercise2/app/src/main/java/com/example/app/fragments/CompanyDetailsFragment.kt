@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.app.App
+import com.example.app.CompanyInfoAdapter
+import com.example.app.VacancyAdapter
 import com.example.app.databinding.FragmentCompanyDetailsBinding
 import com.example.domain.Company
 import com.example.domain.GetCompanyByIdUseCase
@@ -40,13 +43,15 @@ class CompanyDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.companyVacanciesOut.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         updateData()
     }
 
     private fun changeUi(product: Company) {
         binding.companyNameOut.text = product.name
         binding.companyFieldOut.text = product.fieldOfActivity
-        binding.companyVacanciesOut.text = product.vacancies.toString()
+        binding.companyVacanciesOut.adapter = VacancyAdapter(product.vacancies)
         binding.companyContactsOut.text = product.contacts
     }
 
